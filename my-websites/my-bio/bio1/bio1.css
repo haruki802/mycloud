@@ -1,0 +1,45 @@
+body {
+  /* Background */
+  /*
+  background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGs4b3h2dTc4dmNzNTI3NW9pMG43cTliMjF4djBrZWt2ZjNobDBueSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KaeWI99rNgxU7jRoNq/giphy-downsized-large.gif");
+  background-position: 0%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; */
+  /* Font */
+  color: aliceblue;
+  font-family: "Dancing Scrispt", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+#wallpaper {
+  position: fixed;
+  right: 0%;
+  bottom: 0%;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+img,
+iframe {
+  border-radius: 10px;
+}
+
+iframe {
+  width: 375px;
+}
+
+img {
+  width: 275px;
+}
+
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}

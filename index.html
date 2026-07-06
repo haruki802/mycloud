@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyCloud</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="lang-switch" id="langSwitch">
+
+    <div class="slider"></div>
+
+    <button id="viBtn">VI</button>
+
+    <button id="enBtn">EN</button>
+
+</div>
+
+
+
+<h1 id="title">Chào mừng bạn đến với Cloud của mình.</h1>
+
+
+
+<p id="description">
+
+    Nơi đây lưu trữ trực tuyến các dự án và tài nguyên xàm xí đú.
+
+</p>
+
+
+
+<div class="toolbar">
+
+
+
+    <div class="search-box">
+
+        <input id="search" type="text" placeholder="Search files...">
+
+
+
+        <button class="search-icon" onclick="focusSearch()">
+
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+
+                <path d="M10 18a8 8 0 1 1 0-16a8 8 0 0 1 0 16z" stroke="#8b949e" stroke-width="2"/>
+
+                <path d="M21 21l-4-4" stroke="#8b949e" stroke-width="2"/>
+
+            </svg>
+
+        </button>
+
+    </div>
+
+
+
+    <div class="btn-group">
+
+        <button onclick="expandAll()">Expand All</button>
+
+        <button onclick="collapseAll()">Collapse All</button>
+
+    </div>
+
+
+
+</div>
+
+
+
+<div id="tree">
+<!-- TREE:START -->
+
+<a href="index.html" class="file" style="display: block; text-decoration: none; color: #58a6ff;">index.html</a>
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>fonts</span>
+  </div>
+  <div class="children">
+<span class="file" style="display: block; color: inherit;">FiraCode-VariableFont_wght.ttf</span>
+<span class="file" style="display: block; color: inherit;">Product Sans Regular.otf</span>
+  </div>
+</div>
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>my-websites</span>
+  </div>
+  <div class="children">
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>my-bio</span>
+  </div>
+  <div class="children">
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>bio1</span>
+  </div>
+  <div class="children">
+<span class="file" style="display: block; color: inherit;">bio1.css</span>
+<a href="my-websites/my-bio/bio1/bio1.html" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">bio1.html</a>
+  </div>
+</div>
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>bio2</span>
+  </div>
+  <div class="children">
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>favicon</span>
+  </div>
+  <div class="children">
+<span class="file" style="display: block; color: inherit;">android-icon-36x36.png</span>
+<span class="file" style="display: block; color: inherit;">android-icon-48x48.png</span>
+<span class="file" style="display: block; color: inherit;">android-icon-72x72.png</span>
+<span class="file" style="display: block; color: inherit;">android-icon-96x96.png</span>
+<span class="file" style="display: block; color: inherit;">android-icon-144x144.png</span>
+<span class="file" style="display: block; color: inherit;">android-icon-192x192.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-57x57.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-60x60.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-72x72.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-76x76.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-114x114.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-120x120.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-144x144.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-152x152.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-180x180.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon-precomposed.png</span>
+<span class="file" style="display: block; color: inherit;">apple-icon.png</span>
+<span class="file" style="display: block; color: inherit;">browserconfig.xml</span>
+<span class="file" style="display: block; color: inherit;">favicon-16x16.png</span>
+<span class="file" style="display: block; color: inherit;">favicon-32x32.png</span>
+<span class="file" style="display: block; color: inherit;">favicon-96x96.png</span>
+<span class="file" style="display: block; color: inherit;">favicon.ico</span>
+<span class="file" style="display: block; color: inherit;">manifest.json</span>
+<span class="file" style="display: block; color: inherit;">ms-icon-70x70.png</span>
+<span class="file" style="display: block; color: inherit;">ms-icon-144x144.png</span>
+<span class="file" style="display: block; color: inherit;">ms-icon-150x150.png</span>
+<span class="file" style="display: block; color: inherit;">ms-icon-310x310.png</span>
+  </div>
+</div>
+<span class="file" style="display: block; color: inherit;">bio2.css</span>
+<a href="my-websites/my-bio/bio2/bio2.html" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">bio2.html</a>
+<span class="file" style="display: block; color: inherit;">bio2.js</span>
+  </div>
+</div>
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>cdn</span>
+  </div>
+  <div class="children">
+<span class="file" style="display: block; color: inherit;">Galaxy_in_4K_Animation_Overlay_for_Edits_Motion_Background_Free_Beautiful_HD_Video_Effect_720p60.mp4</span>
+  </div>
+</div>
+  </div>
+</div>
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>shortcuts</span>
+  </div>
+  <div class="children">
+<a href="my-websites/shortcuts/2k9trading.html" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">2k9trading.html</a>
+  </div>
+</div>
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>troll</span>
+  </div>
+  <div class="children">
+<span class="file" style="display: block; color: inherit;">troll1.css</span>
+<a href="my-websites/troll/troll1.html" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">troll1.html</a>
+<span class="file" style="display: block; color: inherit;">troll2.css</span>
+<a href="my-websites/troll/troll2.html" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">troll2.html</a>
+<span class="file" style="display: block; color: inherit;">troll3.css</span>
+<a href="my-websites/troll/troll3.html" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">troll3.html</a>
+  </div>
+</div>
+  </div>
+</div>
+<div class="folder collapsed">
+  <div class="folder-header" onclick="this.parentElement.classList.toggle('collapsed')">
+    <span class="arrow">›</span>
+    <span>roblox-scripts</span>
+  </div>
+  <div class="children">
+<a href="roblox-scripts/afk.lua" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">afk.lua</a>
+<a href="roblox-scripts/drivingempire.lua" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">drivingempire.lua</a>
+<a href="roblox-scripts/drivingempire2.lua" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">drivingempire2.lua</a>
+<a href="roblox-scripts/funkyfriday.lua" class="file" style="display: block; text-decoration: none; color: #58a6ff;" target="_blank" rel="noopener noreferrer">funkyfriday.lua</a>
+  </div>
+</div>
+<!-- TREE:END -->
+</div>
+
+
+
+
+<script>
+const translations = {
+    vi: {
+        title: "Chào mừng bạn đến với Cloud của mình.",
+        description: "Nơi đây lưu trữ trực tuyến các dự án và tài nguyên xàm xí đú."
+    },
+    en: {
+        title: "Welcome to my Cloud.",
+        description: "This is where I store my personal projects and random resources online."
+    }
+};
+
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+const viBtn = document.getElementById("viBtn");
+const enBtn = document.getElementById("enBtn");
+const langSwitch = document.getElementById("langSwitch");
+
+function setLanguage(lang) {
+    title.textContent = translations[lang].title;
+    description.textContent = translations[lang].description;
+    viBtn.classList.toggle("active", lang === "vi");
+    enBtn.classList.toggle("active", lang === "en");
+    langSwitch.classList.toggle("en", lang === "en");
+    localStorage.setItem("language", lang);
+}
+
+viBtn.onclick = () => setLanguage("vi");
+enBtn.onclick = () => setLanguage("en");
+setLanguage(localStorage.getItem("language") || "vi");
+
+function focusSearch() {
+    document.getElementById("search").focus();
+}
+
+function expandAll() {
+    document.querySelectorAll(".folder").forEach(f => {
+        f.classList.remove("collapsed");
+    });
+}
+
+function collapseAll() {
+    document.querySelectorAll(".folder").forEach(f => {
+        f.classList.add("collapsed");
+    });
+}
+
+document.getElementById("search").addEventListener("input", function () {
+    const value = this.value.trim().toLowerCase();
+    const files = document.querySelectorAll(".file");
+    const folders = document.querySelectorAll(".folder");
+
+    if (!value) {
+        files.forEach(f => (f.style.display = ""));
+        folders.forEach(f => (f.style.display = ""));
+        return;
+    }
+
+    files.forEach(file => {
+        const match = file.textContent.toLowerCase().includes(value);
+        file.style.display = match ? "" : "none";
+    });
+
+    folders.forEach(folder => {
+        const match = folder.textContent.toLowerCase().includes(value);
+        folder.style.display = match ? "" : "none";
+    });
+});
+</script>
+
+
+
+</body>
+
+</html>

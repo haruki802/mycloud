@@ -1,0 +1,451 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  /* display: flex; */
+  color: rgb(144, 0, 255);
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+  min-width: auto;
+  background: #000;
+
+  font-family: "Grandiflora One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+section {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+section::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#000, rgb(144, 0, 255), #000);
+  animation: animate 5s linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+section span {
+  position: relative;
+  display: block;
+  width: calc(6.25vw - 2px);
+  height: calc(6.25vw - 2px);
+  background: #181818;
+  z-index: 2;
+  transition: 1.5s;
+}
+section span:hover {
+  background: rgb(144, 0, 255);
+  transition: 0s;
+}
+
+section .readme {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: #222;
+  z-index: 1000;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 9);
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+nav {
+  position: relative;
+  /* margin: auto; */
+  /* overflow: hidden; */
+  padding: 0;
+  list-style: none;
+  height: 20%;
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  color: rgb(144, 0, 255);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+nav .active {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(144, 0, 255);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+/* start css menu */
+nav .menu {
+  max-width: 1200px;
+  /* margin: auto; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.menu ul {
+  position: absolute;
+  right: 200px;
+  /* text-align: right;
+  align-items: right; */
+  display: flex;
+  justify-content: space-between;
+}
+.menu ul li {
+  list-style: none;
+  margin-left: 10px;
+}
+.menu ul li .active {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+.menu ul li.active {
+  background: rgb(144, 0, 255);
+  color: #000;
+}
+
+.menu ul li .active:hover {
+  border: rgb(144, 0, 255) solid;
+  /* background: rgb(144, 0, 255); */
+  color: white;
+}
+
+/* start icon */
+
+/* nav #icon{
+  color: white;
+  font-size: 30px;
+  line-height: 80px;
+  float: right;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+} */
+
+/* @media screen and (max-with: 1048px) {
+  label.logo{
+      font-size: 32px;
+      padding-left: 60px; 
+  }
+  nav ul{
+      margin-right: 20px;
+  }
+  nav a{
+      font-size: 17px;
+  }
+} */
+
+/* @media screen and (max-with: 909px) {
+  nav #icon{
+      display: block;
+  }
+  nav ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: rgb(53, 6, 88);
+      top: 80px;
+      left: 0;
+      text-align: center;
+  }
+  nav li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+  }
+  nav a{
+      font-size: 20px;
+  }
+  a.active, a.hover{
+      border: none;
+      color: #a934db;
+  }
+} */
+
+/* @media screen and (max-width: 900px) {
+  #main-menu {
+    flex-direction: column;
+    text-align: center;
+  }
+  #logo {
+    display: block;
+    text-align: center;
+  }
+  nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #main-menu {
+    flex-direction: column;
+    text-align: center;
+  }
+  #logo {
+    display: block;
+    text-align: center;
+  }
+  nav {
+    display: none;
+  }
+} */
+
+/* end icon */
+
+/* end css menu */
+
+.typewrite {
+  width: 200px;
+  text-decoration: none;
+}
+
+.wrap {
+  font-weight: 800;
+  font-style: italic;
+  text-decoration: none;
+  color: rgb(144, 0, 255);
+  background-color: #222;
+  width: auto;
+}
+.wrap:hover {
+  background-color: #222;
+}
+
+section .readme .logo {
+  position: relative;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  /* justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  gap: 40px;
+}
+
+/* section .readme .content h2 
+{
+  font-size: 2em;
+  color: rgb(144, 0, 255);
+  text-transform: uppercase;
+} */
+
+/* section .readme .content .form 
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+} */
+
+/* section .readme .content .form .inputBox
+{
+  position: relative;
+  width: 100%;
+}
+section .readme .content .form .inputBox input 
+{
+  position: relative;
+  width: 100%;
+  background: #333;
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1em;
+}
+section .signin .content .form .inputBox i 
+{
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: #aaa;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.signin .content .form .inputBox input:focus ~ i,
+.signin .content .form .inputBox input:valid ~ i
+{
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: #fff;
+}
+.signin .content .form .links 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.signin .content .form .links a 
+{
+  color: #fff;
+  text-decoration: none;
+}
+.signin .content .form .links a:nth-child(2)
+{
+  color: rgb(144, 0, 255);
+  font-weight: 600;
+}
+.signin .content .form .inputBox input[type="submit"]
+{
+  padding: 10px;
+  background: rgb(144, 0, 255);
+  color: #000;
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+input[type="submit"]:active
+{
+  opacity: 0.6;
+}
+@media (max-width: 900px)
+{
+  section span 
+  {
+    width: calc(10vw - 2px);
+    height: calc(10vw - 2px);
+  }
+} */
+/* @media (max-width: 600px) {
+  section span {
+    width: calc(20vw - 2px);
+    height: calc(20vw - 2px);
+  }
+} */
+
+.icon-container {
+  text-align: center;
+  display: flex;
+  align-content: normal;
+  /* align-items: normal; */
+  align-items: center;
+  justify-content: center;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .typing {
+    color: rgb(144, 0, 255);
+    text-align: center;
+    padding-top: 0em;
+    list-style: none;
+    width: 100%;
+  }
+  .icon-container {
+    padding-top: 75px;
+  }
+  .icon-space {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 900px) {
+  .typing {
+    color: rgb(144, 0, 255);
+    text-align: center;
+    padding-top: 5em;
+    list-style: none;
+    width: 100%;
+  }
+  .icon-container {
+    padding-top: 75px;
+  }
+  .icon-space {
+    padding: 20px;
+  }
+}
+
+.icon {
+  list-style: none;
+  color: #9000ff;
+  size: 100px;
+  border-radius: 50%;
+  text-align: center;
+}
+.icon:hover {
+  color: white;
+  /* box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px; */
+  --webkit-transition: 0.7s;
+  box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 2px,
+    rgba(255, 255, 255, 0.07) 0px 2px 4px, rgba(255, 255, 255, 0.07) 0px 4px 8px,
+    rgba(255, 255, 255, 0.07) 0px 8px 16px,
+    rgba(255, 255, 255, 0.07) 0px 16px 32px,
+    rgba(255, 255, 255, 0.07) 0px 32px 64px;
+}
+
+.title {
+  text-align: center;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0.9rem 0 0 0;
+  float: left;
+}
+
+/* img, video {
+  max-width: 100%;
+  height: auto;
+} */
+
+p.lead {
+  font-family: "lora-regular", serif;
+  font-size: 2rem;
+  line-height: 1.8;
+  color: #888888;
+  padding-left: 13rem;
+  text-align: justify;
+}
+.col-twelve,
+.col-full {
+  width: 100%;
+}
+.intro-info .lead {
+  text-align: left;
+  padding-left: 13rem;
+}
+
+#title-name {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
