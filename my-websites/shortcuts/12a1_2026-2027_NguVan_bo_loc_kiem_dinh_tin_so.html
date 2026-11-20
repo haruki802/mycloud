@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BỘ LỌC KIỂM ĐỊNH TIN SỐ - 60 GIÂY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-pink-500 selection:text-white">
+
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pink-500 to-rose-600 flex items-center justify-center shadow-lg shadow-pink-500/30 text-white font-bold text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-white leading-tight">BỘ LỌC KIỂM ĐỊNH TIN SỐ - 60 GIÂY</h1>
+                    <p class="text-xs text-pink-400 font-medium">Công cụ kiểm tra thông tin an toàn trên mạng xã hội</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="px-3 py-1 bg-slate-800 text-slate-300 text-xs rounded-full border border-slate-700 font-medium">
+                    <i class="fa-solid fa-user-graduate mr-1 text-pink-400"></i> Công cụ học sinh & cộng đồng
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-3xl w-full mx-auto px-4 py-8 flex-grow">
+
+        <!-- INTRO CARD -->
+        <div id="intro-card" class="bg-slate-800/60 border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur mb-6">
+            <div class="inline-block px-3 py-1 bg-pink-500/10 text-pink-400 border border-pink-500/20 rounded-full text-xs font-semibold mb-4">
+                <i class="fa-solid fa-bolt mr-1"></i> Quy trình 5 bước tư duy đọc phê phán
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Kiểm chứng thông tin trước khi chia sẻ</h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                Bạn đang chuẩn bị chia sẻ một bài viết, hình ảnh hay video trên mạng xã hội? Hãy dán đường liên kết hoặc nội dung vào ô bên dưới, sau đó trả lời nhanh 5 câu hỏi kiểm định để hệ thống tính điểm và đưa ra khuyến nghị an toàn!
+            </p>
+
+            <div class="space-y-4">
+                <div>
+                    <label for="news-input" class="block text-sm font-semibold text-slate-200 mb-2">
+                        <i class="fa-solid fa-link mr-1.5 text-pink-400"></i> Dán Link bài viết hoặc Đoạn văn bản cần kiểm tra:
+                    </label>
+                    <textarea id="news-input" rows="3" placeholder="Ví dụ: https://... hoặc dán nội dung đoạn tin đồn bạn muốn kiểm chứng tại đây..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition text-sm"></textarea>
+                </div>
+
+                <div class="flex justify-end">
+                    <button onclick="startVerification()" class="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-400 hover:to-rose-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-pink-500/25 transition flex items-center space-x-2 text-sm">
+                        <span>Bắt đầu 5 bước kiểm định</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUESTIONNAIRE CARD (Hidden initially) -->
+        <div id="quiz-card" class="hidden bg-slate-800/80 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur fade-in">
+            <!-- Progress Bar -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-2">
+                    <span id="step-indicator" class="text-xs font-bold text-pink-400 uppercase tracking-wider">Bước 1 / 5</span>
+                    <span id="step-title-indicator" class="text-xs text-slate-400 font-medium">Nguồn gốc tin tức</span>
+                </div>
+                <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-700">
+                    <div id="progress-bar" class="bg-gradient-to-r from-pink-500 to-rose-600 h-full w-1/5 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <!-- Question Box -->
+            <div id="question-container" class="mb-8">
+                <!-- Injected dynamically via JS -->
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between items-center pt-4 border-t border-slate-700/80">
+                <button id="prev-btn" onclick="prevStep()" class="hidden bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium px-5 py-2.5 rounded-xl transition text-sm flex items-center space-x-2">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Quay lại</span>
+                </button>
+                <div class="ml-auto">
+                    <button id="next-btn" onclick="nextStep()" disabled class="bg-pink-600 opacity-50 cursor-not-allowed text-white font-medium px-6 py-2.5 rounded-xl transition text-sm flex items-center space-x-2">
+                        <span id="next-btn-text">Tiếp theo</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESULTS CARD (Hidden initially) -->
+        <div id="result-card" class="hidden bg-slate-800/90 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur fade-in">
+            <div class="text-center mb-6">
+                <div id="badge-container" class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold mb-3 shadow-lg">
+                    <!-- Dynamic Badge -->
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-1">Kết Quả Kiểm Định Tin Số</h2>
+                <p class="text-slate-400 text-sm">Hệ thống phân tích dựa trên khung 5 bước tư duy đọc phê phán</p>
+            </div>
+
+            <!-- Score Circle / Box -->
+            <div class="bg-slate-900/80 border border-slate-700 rounded-2xl p-6 mb-6 text-center">
+                <span class="text-xs text-slate-400 font-medium uppercase tracking-wider block mb-1">Tổng điểm uy tín</span>
+                <div class="text-5xl font-black mono text-white mb-2"><span id="final-score">0</span><span class="text-2xl text-slate-500">/100</span></div>
+                <div id="score-description" class="text-sm text-slate-300 max-w-lg mx-auto">
+                    <!-- Dynamic Description -->
+                </div>
+            </div>
+
+            <!-- Breakdown -->
+            <div class="mb-8">
+                <h3 class="text-sm font-semibold text-slate-300 mb-3"><i class="fa-solid fa-list-check mr-1 text-pink-400"></i> Chi tiết đánh giá 5 bước:</h3>
+                <div id="breakdown-list" class="space-y-2.5">
+                    <!-- Dynamic breakdown items -->
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <button onclick="resetApp()" class="bg-pink-600 hover:bg-pink-500 text-white font-semibold px-6 py-3 rounded-xl transition text-sm flex items-center justify-center space-x-2 shadow-lg shadow-pink-600/30">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span>Kiểm tra bài viết khác</span>
+                </button>
+                <button onclick="window.print()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold px-6 py-3 rounded-xl transition text-sm flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-print"></i>
+                    <span>In phiếu kết quả</span>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 border-t border-slate-800 text-xs text-slate-500">
+        <p>Bộ lọc kiểm định tin số • Công cụ nâng cao tư duy phản biện</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const questions = [
+            {
+                step: 1,
+                title: "Bước 1: Nguồn gốc tin tức (Source)",
+                question: "Thông tin này xuất phát từ đâu? Có phải từ cơ quan báo chí chính thống, cơ quan nhà nước hoặc tài khoản có tích xanh xác thực không?",
+                options: [
+                    { text: "Có, từ cơ quan báo chí chính thống / cơ quan nhà nước uy tín.", points: 20, desc: "Nguồn tin đáng tin cậy cao." },
+                    { text: "Từ trang web cá nhân, fanpage ẩn danh hoặc không rõ tác giả.", points: 0, desc: "Nguồn tin thiếu minh bạch, cần cảnh giác." }
+                ]
+            },
+            {
+                step: 2,
+                title: "Bước 2: Thời gian & Ngữ cảnh (Time & Context)",
+                question: "Thông tin hoặc hình ảnh trong bài viết có đúng ở thời điểm hiện tại không? Có bị cắt xén khỏi ngữ cảnh gốc để giật gân không?",
+                options: [
+                    { text: "Đúng sự việc thời sự hiện tại, đầy đủ ngữ cảnh không bị cắt xén.", points: 20, desc: "Thời gian và ngữ cảnh chính xác." },
+                    { text: "Là tin cũ từ nhiều năm trước hoặc ảnh ghép từ sự kiện khác.", points: 0, desc: "Sai lệch ngữ cảnh hoặc tái chế tin cũ." }
+                ]
+            },
+            {
+                step: 3,
+                title: "Bước 3: Phân biệt Fact vs. Opinion",
+                question: "Nội dung bài viết chủ yếu dựa trên Sự thật (Fact - có số liệu, chứng cứ, văn bản cụ thể) hay Ý kiến chủ quan (Opinion - cảm xúc, đồn thổi)?",
+                options: [
+                    { text: "Có đầy đủ dữ liệu, số liệu, trích dẫn chứng cứ kiểm chứng được (Fact).", points: 20, desc: "Chứa nhiều dữ liệu thực tế khách quan." },
+                    { text: "Chứa nhiều từ ngữ kích động, cảm xúc cá nhân, không có số liệu (Opinion).", points: 0, desc: "Lẫn lộn định kiến hoặc tin đồn cảm tính." }
+                ]
+            },
+            {
+                step: 4,
+                title: "Bước 4: Kiểm tra Tiêu đề (Headline Check)",
+                question: "Tiêu đề của bài viết có phản ánh đúng nội dung bên trong hay chỉ là tiêu đề 'câu view' (clickbait) phóng đại sự thật?",
+                options: [
+                    { text: "Tiêu đề trung thực, phản ánh chính xác nội dung cốt lõi.", points: 20, desc: "Tiêu đề chuẩn mực, minh bạch." },
+                    { text: "Tiêu đề giật gân, phóng đại quá mức so với nội dung thực tế.", points: 0, desc: "Dấu hiệu câu view, bóp méo sự thật." }
+                ]
+            },
+            {
+                step: 5,
+                title: "Bước 5: Đối chiếu kiểm chứng chéo (Cross-Check)",
+                question: "Bạn đã thử tìm kiếm trên Google News hoặc các trang báo lớn khác để xem có ai đưa tin tương tự chưa?",
+                options: [
+                    { text: "Rồi, các báo chí chính thống uy tín khác đều có đưa tin xác thực.", points: 20, desc: "Đã kiểm chứng chéo thành công." },
+                    { text: "Chưa kiểm tra hoặc không tìm thấy nguồn thứ hai nào đưa tin cả.", points: 0, desc: "Chưa được xác thực bởi nguồn độc lập." }
+                ]
+            }
+        ];
+
+        let currentStep = 0;
+        let userAnswers = new Array(questions.length).fill(null);
+
+        function startVerification() {
+            const inputVal = document.getElementById('news-input').value.trim();
+            if(!inputVal) {
+                alert("Vui lòng nhập link bài viết hoặc nội dung đoạn tin cần kiểm chứng trước khi bắt đầu!");
+                return;
+            }
+            document.getElementById('intro-card').classList.add('hidden');
+            document.getElementById('quiz-card').classList.remove('hidden');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentStep];
+            document.getElementById('step-indicator').innerText = `Bước ${q.step} / 5`;
+            document.getElementById('step-title-indicator').innerText = q.title;
+            document.getElementById('progress-bar').style.width = `${(q.step / 5) * 100}%`;
+
+            let html = `
+                <h3 class="text-lg sm:text-xl font-bold text-white mb-4 leading-snug">${q.question}</h3>
+                <div class="space-y-3">
+            `;
+
+            q.options.forEach((opt, idx) => {
+                const isSelected = userAnswers[currentStep] === idx;
+                html += `
+                    <div onclick="selectOption(${idx})" class="p-4 rounded-xl border cursor-pointer transition flex items-start space-x-3 ${isSelected ? 'bg-pink-500/20 border-pink-500 text-white' : 'bg-slate-900/60 border-slate-700 hover:border-slate-600 text-slate-300'}">
+                        <div class="mt-0.5 w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${isSelected ? 'border-pink-400 bg-pink-500 text-white' : 'border-slate-600'}">
+                            ${isSelected ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
+                        </div>
+                        <div class="text-sm font-medium leading-relaxed">${opt.text}</div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            document.getElementById('question-container').innerHTML = html;
+
+            // Nav buttons
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            if(currentStep > 0) {
+                prevBtn.classList.remove('hidden');
+            } else {
+                prevBtn.classList.add('hidden');
+            }
+
+            if(userAnswers[currentStep] !== null) {
+                nextBtn.removeAttribute('disabled');
+                nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                nextBtn.classList.add('hover:bg-pink-500');
+                if(currentStep === questions.length - 1) {
+                    document.getElementById('next-btn-text').innerText = "Xem kết quả phân tích";
+                } else {
+                    document.getElementById('next-btn-text').innerText = "Tiếp theo";
+                }
+            } else {
+                document.getElementById('next-btn-text').innerText = "Tiếp theo";
+                nextBtn.setAttribute('disabled', 'true');
+                nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        function selectOption(idx) {
+            userAnswers[currentStep] = idx;
+            renderQuestion();
+        }
+
+        function nextStep() {
+            if(userAnswers[currentStep] === null) return;
+            if(currentStep < questions.length - 1) {
+                currentStep++;
+                renderQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function prevStep() {
+            if(currentStep > 0) {
+                currentStep--;
+                renderQuestion();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz-card').classList.add('hidden');
+            document.getElementById('result-card').classList.remove('hidden');
+
+            let totalScore = 0;
+            let breakdownHtml = '';
+
+            userAnswers.forEach((ansIdx, stepIdx) => {
+                const q = questions[stepIdx];
+                const opt = q.options[ansIdx];
+                totalScore += opt.points;
+
+                const isGood = opt.points > 0;
+                breakdownHtml += `
+                    <div class="bg-slate-900/60 border border-slate-700/80 rounded-xl p-3.5 flex items-center justify-between text-sm">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs ${isGood ? 'bg-emerald-500/20 text-emerald-400' : 'bg-rose-500/20 text-rose-400'}">
+                                <i class="fa-solid ${isGood ? 'fa-check' : 'fa-xmark'}"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold text-white block">Bước ${q.step}: ${q.title.split(':')[1]}</span>
+                                <span class="text-xs text-slate-400">${opt.desc}</span>
+                            </div>
+                        </div>
+                        <span class="font-mono font-bold ${isGood ? 'text-emerald-400' : 'text-rose-400'}">+${opt.points}đ</span>
+                    </div>
+                `;
+            });
+
+            document.getElementById('final-score').innerText = totalScore;
+            document.getElementById('breakdown-list').innerHTML = breakdownHtml;
+
+            const badgeContainer = document.getElementById('badge-container');
+            const scoreDesc = document.getElementById('score-description');
+
+            if(totalScore >= 80) {
+                badgeContainer.className = "inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold mb-3 shadow-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+                badgeContainer.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> AN TOÀN - NÊN CHIA SẺ`;
+                scoreDesc.innerHTML = "Bài viết đạt độ tin cậy rất cao. Các tiêu chí về nguồn gốc, ngữ cảnh và dữ liệu thực tế đều được xác thực rõ ràng. Bạn có thể yên tâm chia sẻ thông tin này.";
+            } else if(totalScore >= 40) {
+                badgeContainer.className = "inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold mb-3 shadow-lg bg-amber-500/20 text-amber-400 border border-amber-500/30";
+                badgeContainer.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-2"></i> CẦN XÁC MINH THÊM`;
+                scoreDesc.innerHTML = "Thông tin có một số điểm chưa hoàn toàn minh chứng rõ ràng hoặc thiếu dữ liệu đối chiếu độc lập. Bạn nên tra cứu thêm trước khi quyết định chia sẻ.";
+            } else {
+                badgeContainer.className = "inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold mb-3 shadow-lg bg-rose-500/20 text-rose-400 border border-rose-500/30";
+                badgeContainer.innerHTML = `<i class="fa-solid fa-ban mr-2"></i> NGUY HIỂM / TIN GIẢ - DỪNG CHIA SẺ`;
+                scoreDesc.innerHTML = "CẢNH BÁO: Thông tin có dấu hiệu giả mạo, thiếu nguồn tin cậy, giật gân hoặc bóp méo ngữ cảnh. Tuyệt đối không chia sẻ để tránh lan truyền tin giả!";
+            }
+        }
+
+        function resetApp() {
+            currentStep = 0;
+            userAnswers = new Array(questions.length).fill(null);
+            document.getElementById('news-input').value = '';
+            document.getElementById('result-card').classList.add('hidden');
+            document.getElementById('intro-card').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
